@@ -3,6 +3,16 @@ entries:
   sickchill:
   - apiVersion: v2
     appVersion: 2024.3.1
+    created: "2025-01-25T20:30:30.007606746Z"
+    description: A Helm chart for Kubernetes
+    digest: 551c297cdf05cee57e647b5ac323d2c26c765bbe33187b6fed4e6f1f4b3e6401
+    name: sickchill
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/sickchill-0.1.1/sickchill-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 2024.3.1
     created: "2025-01-25T15:15:11.895332397Z"
     description: A Helm chart for Kubernetes
     digest: 1cf989e4d24116733ba9330acf3881de55d7d596db4d4ce46b9dd9775254bfec
@@ -22,4 +32,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2025-01-25T15:15:12.001812362Z"
+generated: "2025-01-25T20:30:30.007615172Z"
