@@ -104,6 +104,10 @@ readinessProbe:
   tcpSocket:
     port: 8081
 
+persistence:
+  enabled: false
+  volumes: []
+
 # Additional volumes on the output Deployment definition.
 volumes: []
 # - name: foo
