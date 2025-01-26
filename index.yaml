@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  radarr:
+  - apiVersion: v2
+    appVersion: 5.17.2
+    created: "2025-01-26T20:22:59.023997448Z"
+    description: A Helm chart for Kubernetes
+    digest: a070af3c93eb26087bbe2cb9626a0562cb2d0f8699d9a33c1b1cfbe33c64b6eb
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/radarr-0.1.0/radarr-0.1.0.tgz
+    version: 0.1.0
   sickchill:
   - apiVersion: v2
     appVersion: 2024.3.1
@@ -32,4 +43,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2025-01-25T20:30:30.007615172Z"
+generated: "2025-01-26T20:22:59.02400954Z"
