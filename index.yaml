@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  jackett:
+  - apiVersion: v2
+    appVersion: 0.22.1393
+    created: "2025-02-11T23:34:41.911917859Z"
+    description: A Helm chart for Kubernetes
+    digest: e7ad5b9185578b2bf152b11cce285f0267b354ccbb2e85effc2f4cb440630ba6
+    name: jackett
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/jackett-0.1.0/jackett-0.1.0.tgz
+    version: 0.1.0
   radarr:
   - apiVersion: v2
     appVersion: 5.17.2
@@ -43,4 +54,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2025-01-26T20:22:59.02400954Z"
+generated: "2025-02-11T23:34:41.911927878Z"
