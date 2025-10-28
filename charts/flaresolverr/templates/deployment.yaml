@@ -41,7 +41,7 @@ spec:
             {{- end }}
           ports:
             - name: flaresolverr
-              containerPort: 9117
+              containerPort: 8191
               protocol: TCP
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
