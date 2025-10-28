@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  flaresolverr:
+  - apiVersion: v2
+    appVersion: 3.4.2
+    created: "2025-10-28T10:06:33.393578129Z"
+    description: A Helm chart for Kubernetes
+    digest: b4ac007e9aa2f3010315b48561371bccbe86b7670f00c6569b5677d83750ac75
+    name: flaresolverr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/flaresolverr-0.1.0/flaresolverr-0.1.0.tgz
+    version: 0.1.0
   jackett:
   - apiVersion: v2
     appVersion: 0.22.1393
@@ -65,4 +76,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2025-02-15T09:34:42.431886382Z"
+generated: "2025-10-28T10:06:33.393586185Z"
