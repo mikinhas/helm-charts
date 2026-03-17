@@ -34,6 +34,16 @@ entries:
     version: 0.1.0
   radarr:
   - apiVersion: v2
+    appVersion: 6.0.4
+    created: "2026-03-17T21:36:56.060021366Z"
+    description: A Helm chart for deploying Radarr, a movie collection manager
+    digest: fcdcf38748d8027716883c803a6601a4f973309673478a09679dc03efa0ffe0a
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/radarr-0.2.0/radarr-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 5.17.2
     created: "2026-03-17T20:57:04.01800032Z"
     description: A Helm chart for Kubernetes
@@ -126,4 +136,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-17T21:31:13.674420119Z"
+generated: "2026-03-17T21:36:56.060048357Z"
