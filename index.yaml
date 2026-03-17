@@ -35,6 +35,16 @@ entries:
   radarr:
   - apiVersion: v2
     appVersion: 5.17.2
+    created: "2026-03-17T20:57:04.01800032Z"
+    description: A Helm chart for Kubernetes
+    digest: 8503aa08004573f6ff29b6d036cf71c3fea1f815993d363df0ed72aa416661dc
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/radarr-0.1.1/radarr-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 5.17.2
     created: "2025-01-26T20:22:59.023997448Z"
     description: A Helm chart for Kubernetes
     digest: a070af3c93eb26087bbe2cb9626a0562cb2d0f8699d9a33c1b1cfbe33c64b6eb
@@ -67,6 +77,16 @@ entries:
   sonarr:
   - apiVersion: v2
     appVersion: 4.0.12
+    created: "2026-03-17T20:57:04.192007747Z"
+    description: A Helm chart for Kubernetes
+    digest: 7fc7ac55d70e8658b9e7fc77ba60e60b1426da3eca56001409a9e903684a81d0
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/sonarr-0.1.1/sonarr-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 4.0.12
     created: "2025-02-15T09:34:42.431876934Z"
     description: A Helm chart for Kubernetes
     digest: 9a96d0ecd9401d6a22b1c2ff92a3e9543d87043c676191ae2155a5f589a9ab36
@@ -78,6 +98,16 @@ entries:
   transmission:
   - apiVersion: v2
     appVersion: 4.0.6
+    created: "2026-03-17T20:57:04.368042685Z"
+    description: A Helm chart for Kubernetes
+    digest: 17ac15aa3f872cce65246d8563ecd7dfe32e28dd4c8dfee3a4f922f2ec367ed4
+    name: transmission
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.1/transmission-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 4.0.6
     created: "2025-01-25T15:15:12.001806581Z"
     description: A Helm chart for Kubernetes
     digest: ee24a069ebd06aa48c0a1bb14fd9c4773a369cabbf63185bc975ab77349a9a93
@@ -86,4 +116,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-17T20:53:31.247669357Z"
+generated: "2026-03-17T20:57:04.368061964Z"
