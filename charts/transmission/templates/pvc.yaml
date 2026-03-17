@@ -4,7 +4,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .name }}
+  name: {{ include "transmission.fullname" $ }}-{{ .name }}
 spec:
   accessModes:
     - {{ default "ReadWriteOnce" .accessMode }}
@@ -12,5 +12,8 @@ spec:
     requests:
       storage: {{ .size }}
   storageClassName: {{ default "standard" .storageClass }}
+  {{- if .volumeName }}
+  volumeName: {{ .volumeName }}
+  {{- end }}
 {{- end }}
 {{- end }}
