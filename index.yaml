@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   flaresolverr:
   - apiVersion: v2
+    appVersion: 3.4.6
+    created: "2026-03-17T22:12:23.493772063Z"
+    description: A Helm chart for deploying FlareSolverr, a Cloudflare bypass proxy
+    digest: 890c8c03ce417f942fb22cf5fecafef65c8bab23afea096c25a2f094b7e81897
+    name: flaresolverr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/flaresolverr-0.2.0/flaresolverr-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 3.4.2
     created: "2025-10-28T10:06:33.393578129Z"
     description: A Helm chart for Kubernetes
@@ -156,4 +166,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-17T22:08:50.302488448Z"
+generated: "2026-03-17T22:12:23.49380263Z"
