@@ -13,6 +13,16 @@ entries:
     version: 0.1.0
   jackett:
   - apiVersion: v2
+    appVersion: 0.24.1392
+    created: "2026-03-17T22:08:50.302463241Z"
+    description: A Helm chart for deploying Jackett, an API proxy for torrent trackers
+    digest: cea658b32330a2ef41692cb9662eb1df6823950b3aabd380052e550acf15c2f8
+    name: jackett
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/jackett-0.2.0/jackett-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 0.22.1393
     created: "2026-03-17T20:53:31.247657935Z"
     description: A Helm chart for Kubernetes
@@ -146,4 +156,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-17T21:59:06.71460005Z"
+generated: "2026-03-17T22:08:50.302488448Z"
