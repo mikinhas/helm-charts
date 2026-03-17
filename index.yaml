@@ -76,6 +76,16 @@ entries:
     version: 0.1.0
   sonarr:
   - apiVersion: v2
+    appVersion: 4.0.16
+    created: "2026-03-17T21:31:13.674398689Z"
+    description: A Helm chart for deploying Sonarr, a TV series collection manager
+    digest: 1aacdc3c4cd1eceac3cb51f7a31373271554b8431c78af3db90ef98e959e1837
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/sonarr-0.2.0/sonarr-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 4.0.12
     created: "2026-03-17T20:57:04.192007747Z"
     description: A Helm chart for Kubernetes
@@ -116,4 +126,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-17T20:57:04.368061964Z"
+generated: "2026-03-17T21:31:13.674420119Z"
