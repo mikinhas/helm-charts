@@ -113,18 +113,18 @@ livenessProbe:
   httpGet:
     path: /transmission/web/
     port: 9091
-  initialDelaySeconds: 30
-  periodSeconds: 10
-  timeoutSeconds: 5
-  failureThreshold: 3
+  initialDelaySeconds: 60
+  periodSeconds: 30
+  timeoutSeconds: 15
+  failureThreshold: 5
 readinessProbe:
   httpGet:
     path: /transmission/web/
     port: 9091
-  initialDelaySeconds: 15
-  periodSeconds: 10
-  timeoutSeconds: 5
-  failureThreshold: 3
+  initialDelaySeconds: 30
+  periodSeconds: 30
+  timeoutSeconds: 15
+  failureThreshold: 5
 
 persistence:
   enabled: false
