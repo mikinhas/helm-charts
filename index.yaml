@@ -187,6 +187,16 @@ entries:
     version: 0.1.0
   transmission:
   - apiVersion: v2
+    appVersion: 4.1.3
+    created: "2026-09-20T09:22:28.01168354Z"
+    description: A Helm chart for deploying Transmission, a BitTorrent client
+    digest: 34ffff19e297956a0c7090fcf6bf2b100e0cee51f487f3027dfda3eaba1ce6c1
+    name: transmission
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.2.2/transmission-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
     appVersion: 4.1.1
     created: "2026-04-16T20:29:33.761035764Z"
     description: A Helm chart for deploying Transmission, a BitTorrent client
@@ -226,4 +236,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-20T09:22:18.343720486Z"
+generated: "2026-09-20T09:22:28.011738872Z"
