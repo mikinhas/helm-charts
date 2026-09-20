@@ -1,0 +1,41 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Keep Chart.yaml appVersion in sync with the image tag (values.yaml is handled by the helm-values manager)",
+      "managerFilePatterns": ["/^charts/[^/]+/Chart\\.yaml$/"],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=(?<datasource>\\S+)\\s+depName=(?<depName>\\S+)\\s*\\nappVersion:\\s*\"?(?<currentValue>[^\"\\s]+)\"?"
+      ],
+      "extractVersionTemplate": "^v?(?<version>\\d+\\.\\d+\\.\\d+)$"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Charts: only follow plain x.y.z image tags (no nightly, -lsNN, arch-prefixed or hotfix tags)",
+      "matchFileNames": ["charts/**"],
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    },
+    {
+      "description": "Charts: bump the chart version (patch) on every image update so chart-releaser publishes a new release",
+      "matchFileNames": ["charts/**"],
+      "commitMessagePrefix": "{{parentDir}}:",
+      "bumpVersions": [
+        {
+          "name": "chart version",
+          "filePatterns": ["{{packageFileDir}}/Chart.yaml"],
+          "matchStrings": ["\\nversion:\\s(?<version>[^\\s]+)"],
+          "bumpType": "patch"
+        }
+      ]
+    },
+    {
+      "description": "Jackett releases several times a week: only open a PR on Mondays (UTC) to limit chart releases",
+      "matchPackageNames": ["linuxserver/jackett"],
+      "schedule": ["* * * * 1"]
+    }
+  ]
+}
