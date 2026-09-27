@@ -13,3 +13,39 @@ spec:
       name: transmission
   selector:
     {{- include "transmission.selectorLabels" . | nindent 4 }}
+
+{{- if .Values.peerService.enabled }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "transmission.fullname" . }}-peer
+  labels:
+    {{- include "transmission.labels" . | nindent 4 }}
+  {{- with .Values.peerService.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  type: {{ .Values.peerService.type }}
+  {{- with .Values.peerService.externalTrafficPolicy }}
+  externalTrafficPolicy: {{ . }}
+  {{- end }}
+  ports:
+    - port: {{ .Values.peerService.port }}
+      targetPort: 51413-tcp
+      protocol: TCP
+      name: peer-tcp
+      {{- with .Values.peerService.nodePort }}
+      nodePort: {{ . }}
+      {{- end }}
+    - port: {{ .Values.peerService.port }}
+      targetPort: 51413-udp
+      protocol: UDP
+      name: peer-udp
+      {{- with .Values.peerService.nodePort }}
+      nodePort: {{ . }}
+      {{- end }}
+  selector:
+    {{- include "transmission.selectorLabels" . | nindent 4 }}
+{{- end }}

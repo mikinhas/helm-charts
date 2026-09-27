@@ -21,6 +21,12 @@ helm install transmission mikinhas/transmission
 | `image.pullPolicy` | Pull policy | `IfNotPresent` |
 | `service.type` | Service type | `ClusterIP` |
 | `service.port` | Service port | `80` |
+| `peerService.enabled` | Enable the peer service (TCP/UDP) | `false` |
+| `peerService.type` | Peer service type | `ClusterIP` |
+| `peerService.port` | Peer service port | `51413` |
+| `peerService.nodePort` | Peer service node port | `""` |
+| `peerService.externalTrafficPolicy` | Peer service external traffic policy | `""` |
+| `peerService.annotations` | Peer service annotations | `{}` |
 | `ingress.enabled` | Enable ingress | `false` |
 | `persistence.enabled` | Enable persistence | `false` |
 | `resources` | CPU/Memory resource limits | `{}` |
@@ -78,3 +84,14 @@ ingress:
 | Port | Description |
 |------|-------------|
 | 9091 | Transmission web UI |
+| 51413 | BitTorrent peer port (TCP/UDP) |
+
+### Peer service
+
+The peer port is exposed by a dedicated service, disabled by default:
+
+```yaml
+peerService:
+  enabled: true
+  type: LoadBalancer
+```

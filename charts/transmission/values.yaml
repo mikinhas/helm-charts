@@ -79,6 +79,17 @@ service:
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
   port: 80
 
+# This sets up a second service for the peer port (TCP and UDP)
+peerService:
+  enabled: false
+  # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+  type: ClusterIP
+  port: 51413
+  # Only used when type is NodePort or LoadBalancer
+  nodePort: ""
+  externalTrafficPolicy: ""
+  annotations: {}
+
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
   enabled: false
