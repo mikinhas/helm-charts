@@ -60,3 +60,16 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Name of the user-provided volume mounted at /config, or an empty string if there is none.
+*/}}
+{{- define "transmission.configVolumeName" -}}
+{{- $name := "" -}}
+{{- range .Values.volumeMounts -}}
+{{- if eq (.mountPath | trimSuffix "/") "/config" -}}
+{{- $name = .name -}}
+{{- end -}}
+{{- end -}}
+{{- $name -}}
+{{- end }}

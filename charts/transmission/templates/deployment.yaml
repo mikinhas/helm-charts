@@ -1,3 +1,9 @@
+{{- /* Volume holding /config: the user's mount if there is one, else an emptyDir added by the chart */ -}}
+{{- $configVolume := include "transmission.configVolumeName" . }}
+{{- $configEmptyDir := and .Values.config.enabled (eq $configVolume "") }}
+{{- if $configEmptyDir }}
+{{- $configVolume = "config" }}
+{{- end }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -11,9 +17,14 @@ spec:
       {{- include "transmission.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      {{- if or .Values.config.enabled .Values.podAnnotations }}
       annotations:
+        {{- if .Values.config.enabled }}
+        checksum/settings: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        {{- end }}
+        {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
+        {{- end }}
       {{- end }}
       labels:
         {{- include "transmission.labels" . | nindent 8 }}
@@ -28,6 +39,23 @@ spec:
       serviceAccountName: {{ include "transmission.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.config.enabled }}
+      {{- /* Copies settings.json from the ConfigMap into /config on every start, so the
+           image can still apply USER/PASS/PEERPORT/WHITELIST on top of it with jq. */}}
+      initContainers:
+        - name: settings
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["cp", "/settings/settings.json", "/config/settings.json"]
+          volumeMounts:
+            - name: settings
+              mountPath: /settings
+              readOnly: true
+            - name: {{ $configVolume }}
+              mountPath: /config
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -55,13 +83,30 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
+          {{- if or .Values.volumeMounts $configEmptyDir }}
           volumeMounts:
+            {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
+            {{- end }}
+            {{- if $configEmptyDir }}
+            - name: {{ $configVolume }}
+              mountPath: /config
+            {{- end }}
           {{- end }}
-      {{- with .Values.volumes }}
+      {{- if or .Values.volumes .Values.config.enabled }}
       volumes:
+        {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
+        {{- end }}
+        {{- if .Values.config.enabled }}
+        - name: settings
+          configMap:
+            name: {{ include "transmission.fullname" . }}-settings
+        {{- end }}
+        {{- if $configEmptyDir }}
+        - name: {{ $configVolume }}
+          emptyDir: {}
+        {{- end }}
       {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

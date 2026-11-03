@@ -31,6 +31,8 @@ helm install transmission mikinhas/transmission
 | `persistence.enabled` | Enable persistence | `false` |
 | `resources` | CPU/Memory resource limits | `{}` |
 | `podEnvVars` | Environment variables | `[]` |
+| `config.enabled` | Manage `settings.json` from the chart | `true` |
+| `config.settings` | Content of `settings.json` (YAML, rendered to JSON) | `{}` |
 
 ### Environment variables
 
@@ -51,6 +53,37 @@ podEnvVars:
   - name: PEERPORT
     value: ""
 ```
+
+### Transmission settings
+
+Transmission's `settings.json` is managed by the chart. The settings are rendered into a
+ConfigMap and copied to `/config/settings.json` by an init container every time the pod
+starts, so values set here always win over changes made from the web UI. Keys that are
+not set keep Transmission's defaults. The `USER`, `PASS`, `PEERPORT`, `WHITELIST` and
+`HOST_WHITELIST` environment variables are still applied on top of this file by the
+image at startup.
+
+The chart ships an empty `settings` map, so every setting takes Transmission's built-in
+default. Note that the built-in `download-dir` is `/config/Downloads`, not
+`/downloads/complete` as in the image, so you will usually want to set at least the
+directories:
+
+```yaml
+config:
+  settings:
+    download-dir: /data/downloads/complete
+    incomplete-dir: /data/downloads/incomplete
+    speed-limit-down: 5000
+    speed-limit-down-enabled: true
+    ratio-limit: 2
+    ratio-limit-enabled: true
+```
+
+Set `config.enabled: false` to let Transmission manage the file itself. The file is
+copied into the volume mounted at `/config`. If there is none, the chart adds an
+`emptyDir` for it. See the
+[Transmission documentation](https://github.com/transmission/transmission/blob/main/docs/Editing-Configuration-Files.md)
+for the list of settings.
 
 ### Persistence
 

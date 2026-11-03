@@ -54,6 +54,29 @@ podEnvVars:
   # - name: HOST_WHITELIST
   #   value: ""
 
+# Transmission settings.json, managed by the chart.
+# The settings are rendered into a ConfigMap and copied to /config/settings.json by an
+# init container every time the pod starts, so values here always win over changes made
+# from the web UI. Keys that are not set keep Transmission's defaults.
+# The USER, PASS, PEERPORT, WHITELIST and HOST_WHITELIST environment variables are still
+# applied on top of this file by the image at startup.
+# If no volume is mounted at /config, the chart adds an emptyDir for it.
+# https://github.com/transmission/transmission/blob/main/docs/Editing-Configuration-Files.md
+config:
+  enabled: true
+  # With an empty map, every setting takes Transmission's built-in default. Note that the
+  # built-in download-dir is /config/Downloads, not /downloads/complete as in the image.
+  settings: {}
+    # download-dir: /downloads/complete
+    # incomplete-dir: /downloads/incomplete
+    # incomplete-dir-enabled: true
+    # watch-dir: /watch
+    # watch-dir-enabled: true
+    # speed-limit-down: 5000
+    # speed-limit-down-enabled: true
+    # ratio-limit: 2
+    # ratio-limit-enabled: true
+
 # This is for setting Kubernetes Annotations to a Pod.
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ 
 podAnnotations: {}
