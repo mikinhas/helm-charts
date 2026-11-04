@@ -122,6 +122,18 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/jackett-0.1.0/jackett-0.1.0.tgz
     version: 0.1.0
+  prowlarr:
+  - apiVersion: v2
+    appVersion: 2.7.0
+    created: "2026-11-04T22:57:31.272553586Z"
+    description: A Helm chart for deploying Prowlarr, an indexer manager for the *arr
+      apps
+    digest: 872f65bd6ebd597b89c9fa93f2bc07af6851731b82c458ca72b3e3d3a73272ca
+    name: prowlarr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/prowlarr-2.7.0/prowlarr-2.7.0.tgz
+    version: 2.7.0
   radarr:
   - apiVersion: v2
     appVersion: 6.4.4
@@ -336,4 +348,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2026-11-03T22:50:29.092604563Z"
+generated: "2026-11-04T22:57:31.272625622Z"
