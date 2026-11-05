@@ -58,4 +58,4 @@ ingress:
 
 | Port | Description |
 |------|-------------|
-| 6767 | Bazarr web UI |
+| 6767 | Bazarr web UI (health check: `/api/system/ping`) |
