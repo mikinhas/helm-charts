@@ -195,6 +195,18 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/radarr-0.1.0/radarr-0.1.0.tgz
     version: 0.1.0
+  recyclarr:
+  - apiVersion: v2
+    appVersion: 8.8.1
+    created: "2026-11-05T19:47:11.274436011Z"
+    description: A Helm chart for deploying Recyclarr, which syncs TRaSH Guides quality
+      profiles and custom formats to Sonarr and Radarr
+    digest: fd7ff9b1584e6894dacdae135e75498f529b2d0d435c45f7828b1e409c3daa18
+    name: recyclarr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/recyclarr-8.8.1/recyclarr-8.8.1.tgz
+    version: 8.8.1
   sickchill:
   - apiVersion: v2
     appVersion: 2024.3.1
@@ -348,4 +360,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2026-11-04T22:57:31.272625622Z"
+generated: "2026-11-05T19:47:11.274484593Z"
