@@ -1,6 +1,6 @@
 apiVersion: v2
 name: jellyseerr
-description: A Helm chart for deploying Jellyseerr, a request management and media discovery tool for Jellyfin
+description: A Helm chart for deploying Seerr (formerly Jellyseerr), a request management and media discovery tool for Jellyfin
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -15,12 +15,12 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-# renovate: datasource=docker depName=fallenbagel/jellyseerr
-version: 2.7.3
+# renovate: datasource=docker depName=ghcr.io/seerr-team/seerr
+version: 3.5.1
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-# renovate: datasource=docker depName=fallenbagel/jellyseerr
-appVersion: "2.7.3"
+# renovate: datasource=docker depName=ghcr.io/seerr-team/seerr
+appVersion: "3.5.1"

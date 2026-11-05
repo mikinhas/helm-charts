@@ -1,10 +1,15 @@
 # Jellyseerr Helm Chart
 
-Helm chart to deploy [Jellyseerr](https://github.com/fallenbagel/jellyseerr) on Kubernetes.
+Helm chart to deploy [Seerr](https://github.com/seerr-team/seerr) (formerly Jellyseerr) on Kubernetes.
 
-Jellyseerr is a request management and media discovery tool for Jellyfin, Plex and Emby:
+Seerr is a request management and media discovery tool for Jellyfin, Plex and Emby:
 users request movies and series, requests are forwarded to Radarr and Sonarr.
-Configuration lives in `/app/config`.
+Configuration lives in `/app/config`. The container runs as user `node` (1000:1000), so that
+directory must be writable by UID 1000 (`fsGroup: 1000` is set by default; on storage classes that
+ignore it, such as local-path, `chown -R 1000:1000` the directory once).
+
+Seerr 3.x is required for Jellyfin 10.11+ / 12: older Jellyseerr releases fail to authenticate
+(`ArgumentNullException: request.App`).
 
 ## Installation
 
@@ -18,8 +23,8 @@ helm install jellyseerr mikinhas/jellyseerr
 | Parameter | Description | Default |
 |-----------|-------------|---------|
 | `replicaCount` | Number of replicas | `1` |
-| `image.repository` | Docker image | `fallenbagel/jellyseerr` |
-| `image.tag` | Image tag | `2.7.3` |
+| `image.repository` | Docker image | `ghcr.io/seerr-team/seerr` |
+| `image.tag` | Image tag | `v3.5.1` |
 | `image.pullPolicy` | Pull policy | `IfNotPresent` |
 | `service.type` | Service type | `ClusterIP` |
 | `service.port` | Service port | `80` |
