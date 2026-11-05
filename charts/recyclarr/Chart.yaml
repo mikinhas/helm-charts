@@ -1,0 +1,12 @@
+apiVersion: v2
+name: recyclarr
+description: A Helm chart for deploying Recyclarr, which syncs TRaSH Guides quality profiles and custom formats to Sonarr and Radarr
+
+type: application
+
+# Chart version and appVersion follow the image version (see renovate.json at the repo root).
+# renovate: datasource=docker depName=ghcr.io/recyclarr/recyclarr
+version: 8.8.1
+
+# renovate: datasource=docker depName=ghcr.io/recyclarr/recyclarr
+appVersion: "8.8.1"

@@ -1,0 +1,109 @@
+# Default values for recyclarr.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Recyclarr is a one-shot CLI: this chart runs `recyclarr sync` as a Kubernetes CronJob
+# instead of keeping the image's built-in cron daemon running between syncs.
+
+image:
+  repository: ghcr.io/recyclarr/recyclarr
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "8.8.1"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  automount: false
+  annotations: {}
+  name: ""
+
+# CronJob schedule (standard cron syntax) and the time zone it is evaluated in.
+schedule: "0 4 * * *"
+timeZone: "Europe/Paris"
+concurrencyPolicy: Forbid
+# Skip the run if it could not start within this window (e.g. the node was down).
+startingDeadlineSeconds: 3600
+successfulJobsHistoryLimit: 3
+failedJobsHistoryLimit: 3
+backoffLimit: 1
+# Set to true to keep the CronJob defined but never run it.
+suspend: false
+
+# Arguments passed to the `recyclarr` CLI. Add "--preview" to see what would change
+# without touching Sonarr/Radarr, or "--log", "debug" for verbose output.
+args:
+  - sync
+
+# Contents of recyclarr.yml. Kept as a string so YAML tags such as `!env_var` and
+# `!secret` reach Recyclarr untouched. Rendered through `tpl`, so Helm templating works.
+# Instance names (the key under sonarr:/radarr:) must be unique across all services.
+# https://recyclarr.dev/reference/configuration/
+config: |
+  # sonarr:
+  #   sonarr:
+  #     base_url: http://sonarr:80
+  #     api_key: !env_var SONARR_API_KEY
+  # radarr:
+  #   radarr:
+  #     base_url: http://radarr:80
+  #     api_key: !env_var RADARR_API_KEY
+
+# Optional contents of secrets.yml, for `!secret` references in config. Stored in a
+# Secret managed by this chart; prefer `envFrom` + `!env_var` to keep keys out of git.
+secrets: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podEnvVars:
+  - name: TZ
+    value: "Europe/Paris"
+
+# Inject API keys from an existing Secret, e.g.
+# kubectl create secret generic recyclarr --from-literal=SONARR_API_KEY=... --from-literal=RADARR_API_KEY=...
+envFrom: []
+  # - secretRef:
+  #     name: recyclarr
+
+# The image runs rootless as 1000:1000.
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
+
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - ALL
+
+resources: {}
+  # limits:
+  #   memory: 512Mi
+  # requests:
+  #   cpu: 50m
+  #   memory: 128Mi
+
+# Working directory for Recyclarr (logs, cloned TRaSH Guides repositories, cache).
+# emptyDir by default: everything is re-fetched on each run, nothing worth keeping.
+# Set persistence.enabled to reuse the git clones between runs.
+persistence:
+  enabled: false
+  size: 1Gi
+  accessMode: ReadWriteOnce
+  storageClass: ""
+
+# Additional volumes / volumeMounts on the Job pod.
+volumes: []
+volumeMounts: []
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

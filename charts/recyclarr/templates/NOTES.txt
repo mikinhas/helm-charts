@@ -1,0 +1,9 @@
+Recyclarr is scheduled as CronJob {{ include "recyclarr.fullname" . }} ({{ .Values.schedule }}{{ with .Values.timeZone }}, {{ . }}{{ end }}).
+
+Run a sync now without waiting for the schedule:
+
+  kubectl create job --namespace {{ .Release.Namespace }} --from=cronjob/{{ include "recyclarr.fullname" . }} recyclarr-manual-$(date +%s)
+
+Then follow it with:
+
+  kubectl logs --namespace {{ .Release.Namespace }} -l app.kubernetes.io/instance={{ .Release.Name }} -f
