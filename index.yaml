@@ -122,6 +122,18 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/jackett-0.1.0/jackett-0.1.0.tgz
     version: 0.1.0
+  jellyseerr:
+  - apiVersion: v2
+    appVersion: 2.7.3
+    created: "2026-11-05T19:49:24.666827828Z"
+    description: A Helm chart for deploying Jellyseerr, a request management and media
+      discovery tool for Jellyfin
+    digest: 893648f2bd4171ada2c71b8f96767a60613c621c37da1ab0a66be449bfbf038b
+    name: jellyseerr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/jellyseerr-2.7.3/jellyseerr-2.7.3.tgz
+    version: 2.7.3
   prowlarr:
   - apiVersion: v2
     appVersion: 2.7.0
@@ -360,4 +372,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2026-11-05T19:47:11.274484593Z"
+generated: "2026-11-05T19:49:24.666902673Z"
