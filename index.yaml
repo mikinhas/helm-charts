@@ -136,6 +136,17 @@ entries:
     version: 0.1.0
   jellyseerr:
   - apiVersion: v2
+    appVersion: 3.5.2
+    created: "2026-11-15T23:32:06.756150455Z"
+    description: A Helm chart for deploying Seerr (formerly Jellyseerr), a request
+      management and media discovery tool for Jellyfin
+    digest: 19a3a269247fa361a5b00d3a43f82acf141b5ea0bc04977905a1958faf202b34
+    name: jellyseerr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/jellyseerr-3.5.2/jellyseerr-3.5.2.tgz
+    version: 3.5.2
+  - apiVersion: v2
     appVersion: 3.5.1
     created: "2026-11-05T23:46:03.560549096Z"
     description: A Helm chart for deploying Seerr (formerly Jellyseerr), a request
@@ -395,4 +406,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2026-11-05T23:46:03.560613111Z"
+generated: "2026-11-15T23:32:06.756202414Z"
