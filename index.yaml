@@ -170,6 +170,17 @@ entries:
     version: 2.7.3
   prowlarr:
   - apiVersion: v2
+    appVersion: 3.1.0
+    created: "2026-11-24T17:08:59.453842409Z"
+    description: A Helm chart for deploying Prowlarr, an indexer manager for the *arr
+      apps
+    digest: 656c38159f4491c6b9117e483ae563f1aef2af213155093e7300ae23d7f2cfd7
+    name: prowlarr
+    type: application
+    urls:
+    - https://github.com/mikinhas/helm-charts/releases/download/prowlarr-3.1.0/prowlarr-3.1.0.tgz
+    version: 3.1.0
+  - apiVersion: v2
     appVersion: 3.0.2
     created: "2026-11-18T13:49:26.861365449Z"
     description: A Helm chart for deploying Prowlarr, an indexer manager for the *arr
@@ -427,4 +438,4 @@ entries:
     urls:
     - https://github.com/mikinhas/helm-charts/releases/download/transmission-0.1.0/transmission-0.1.0.tgz
     version: 0.1.0
-generated: "2026-11-18T13:56:08.34409981Z"
+generated: "2026-11-24T17:08:59.453928411Z"
